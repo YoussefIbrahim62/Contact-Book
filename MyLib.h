@@ -5,13 +5,30 @@
 
 using namespace std;
 
+int ValidateNumber()
+{
+	int Number;
+
+	cin >> Number;
+
+	while (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "\nPlease enter a valid number\n";
+		cin >> Number;
+	}
+
+	return Number;
+}
+
 int ReadNumberInRange(int From, int To,string message)
 {
 	int input = 0;
 	do
 	{
 		cout << message << endl;
-		cin >> input;
+		input = ValidateNumber();
 
 	} while (input < From || input > To);
 
