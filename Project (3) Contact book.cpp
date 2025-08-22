@@ -27,10 +27,11 @@ struct stContact
 
 vector<stContact> Contacts = 
 {
-	{"Youssef", "01016548516", "-", "Egypt"},
-	{"Azza", "01516171850", "-", "Egypt"},
-	{"Ali", "01516547514", "01213489687", "Egypt"},
-	{"Ibrahim", "81312345678", "81387654321", "Japan"}
+	{"Joe Ibrahim", "01016548516", "-", "Egypt"},
+	{"Farida", "900500300", "987654321", "Egypt"},
+	{"Yasmin Hany", "900500300", "-", "Egypt"},
+	{"Nada", "900500300", "123456789", "Egypt"},
+
 };
 
 //main program functions 
@@ -83,10 +84,10 @@ void AddNewContact()
 void RemoveAContact()
 {
 	string Name;
-	int counter = 0;
-	
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 	cout << "Please enter the contact name that you want to remove\n";
-	cin >> Name;
+	getline(cin, Name);
 
 	for (size_t i = 0; i < Contacts.size(); i++)
 	{
