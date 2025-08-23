@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include<string>
+#include <iomanip>
 #include "MyLib.h"
 
 using namespace std;
@@ -28,9 +29,12 @@ struct stContact
 vector<stContact> Contacts = 
 {
 	{"Joe Ibrahim", "01016548516", "-", "Egypt"},
-	{"Farida", "900500300", "987654321", "Egypt"},
-	{"Yasmin Hany", "900500300", "-", "Egypt"},
-	{"Nada", "900500300", "123456789", "Egypt"},
+	{"Azza ", "900500300", "-", "Syria"},
+	{"Ibrahim", "900500300", "123456789", "Egypt"},
+	{"John", "900500300", "123456789", "USA"},
+	{"Emily", "900500300", "987654321", "UK"},
+	{"Zed", "900500300", "123456789", "Canda"},
+	{"Ahmed", "900500300", "987654321", "Egypt"},
 
 };
 
@@ -116,21 +120,23 @@ int IsContactExisted(string contactName)
 
 void showAContact(stContact Contact)
 {
-	cout << "----------------------------------------------------------------------------\n";
-	cout << "Contact Name             : " << Contact.ContactName << "\n";
-	cout << "Contact phone number (1) : " << Contact.PhoneNumber1 << "\n";
-	cout << "Contact phone number (2) : " << Contact.PhoneNumber2 << "\n";
-	cout << "Contact country          : " << Contact.country << "\n";
-	cout << "----------------------------------------------------------------------------\n\n\n";
+
+	cout << left << setw(24) << Contact.ContactName << "|" << setw(13) << Contact.PhoneNumber1 << "|" << setw(13) << Contact.PhoneNumber2 << "|" << setw(13) << Contact.country << "|\n";
 
 }
 
 void showAllContacts()
 {
+	cout << "------------------------|-------------|-------------|-------------|\n";
+	cout << "          Name          |   Phone 1   |   Phone 2   |   Country   |\n";
+	cout << "------------------------|-------------|-------------|-------------|\n";
+
 	for (stContact contact : Contacts)
 	{
 		showAContact(contact);
 	}
+
+	cout << "------------------------|-------------|-------------|-------------|\n";
 }
 
 
@@ -148,7 +154,13 @@ void SearchForAContactByName()
 		cout << " Contact is NOT found :(\n\n";
 	else
 	{
+		cout << "------------------------|-------------|-------------|-------------|\n";
+		cout << "          Name          |   Phone 1   |   Phone 2   |   Country   |\n";
+		cout << "------------------------|-------------|-------------|-------------|\n";
+
 		showAContact(Contacts[ConatctIndex]);
+
+		cout << "------------------------|-------------|-------------|-------------|\n";
 	}
 
 }
